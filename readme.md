@@ -1,6 +1,6 @@
 # poputchik24
 ## dev
-cd csssr/templates && yarn dev
+cd poputchik-front/templates && yarn dev
 
 ## release
-cd csssr/templates && yarn release
+cd poputchik-front/templates && yarn release
