@@ -1,0 +1,27 @@
+// Сили формата atom (1 класс - одно правило)
+// Желательно использовать сокращения, ассоциирующиеся с Emmet
+// Пример:
+// .m-10r {margin: 10rem;}
+// .mobile .-m-ta-l {}
+
+// Создает css правило по шаблону для всех девайсов
+create-rule(class, prop, value) {
+  // All
+  .{class} {
+    {prop}: value;
+  }
+  // Desktop
+  .desktop .d-{class} {
+    {prop}: value;
+  }
+  // Tablet
+  .tablet .t-{class} {
+    {prop}: value;
+  }
+  // Mobile
+  .mobile .m-{class} {
+    {prop}: value;
+  }
+}
+
+//create-rule(m-10r, margin, 10rem);

@@ -1,0 +1,119 @@
+.calendar
+  background #6673b830
+  padding-bottom 10rem
+  &--container
+    position relative
+  &--heading
+    padding-top 12rem
+    color #fff
+    text-shadow: .2rem .2rem .5rem #000
+  &--description
+    color: #000
+    text-shadow: 0.1rem 0.1rem 0.1rem #00000050
+    text-align: center
+    font-size: 2.5rem
+    font-weight: 600
+  &--datepicker
+    margin: 0 auto
+    width: 81.5rem
+
+.time-select
+  display none
+  &--buttons
+    display flex
+    justify-content center
+    align-items center
+    padding 2rem 0
+  &--label
+    cursor pointer
+    border: .2rem solid #6673b8
+    padding 1rem 1.5rem
+    border-radius: .8rem
+    background rgba(255,255,255 .5)
+    transition: $fast
+    &:hover
+      box-shadow: 0 0 5rem -0.5rem #6673b8
+      background #ffffff
+    &:first-child
+      margin-right 2rem
+    input
+      display none
+    p
+      font-size: 2rem
+      text-align center
+      font-weight 600
+      span
+        display block
+        font-weight 400
+
+.sheme
+  &--container
+    padding 5rem 0
+    display none
+
+  #sheme
+    width: 100%
+    height: auto
+    path
+      opacity: .1
+      transition: $fast
+      cursor pointer
+      stroke: transparent !important
+      stroke-opacity: 0 !important
+      &:hover
+        opacity: 1
+
+  .place
+    &__selected
+      fill: #6673b8 !important 
+      opacity 1 !important
+    &__booking
+      fill: red !important 
+      opacity 1 !important
+      cursor default !important
+    
+.calendar--form
+  padding 2.5rem 3rem
+  max-width: 48rem
+  width: 100%
+  margin: 2rem auto
+  display none
+
+  .title
+    position relative
+    label
+      color silver
+      position absolute
+      font-size 1.8rem
+      top 1rem
+      left 0px
+      cursor text
+      transition $fast
+
+  input:focus,
+  textarea:focus
+    outline none
+
+  input,
+  textarea
+    padding 1rem 0
+    margin-bottom 3.5rem
+    width 100%
+    border none
+    background none
+    font-size 1.8rem
+    border-bottom .1rem solid $blue
+
+  input:focus + label, input:valid + label,
+  textarea:focus + label, textarea:valid + label
+    transform translate(-.4rem, -2.5rem)
+    color $blue
+    font-size 1.5rem
+
+
+  input:focus ~ div.line,input:valid ~ div.line,
+  textarea:focus ~ div.line,textarea:valid ~ div.line
+    transform scale(1)
+
+  .right
+    text-align right

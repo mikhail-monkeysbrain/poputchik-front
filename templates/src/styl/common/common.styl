@@ -1,0 +1,21 @@
+// Дополнительные стили уровня проекта (все что кроме блоков и глобальных стилей)
+
+@import '../core/variables.styl';
+@import '../core/mixins.styl';
+
+.sr
+  sr()
+
+.container
+  position relative
+  container()
+
+.page
+  min-height 'calc(100% - %s - %s)' % ($heightHeader $heightFooter)
+
+.stamp
+  position absolute
+  right 5.4rem
+  top 4.8rem
+  width 25.2rem
+  height 10.6rem

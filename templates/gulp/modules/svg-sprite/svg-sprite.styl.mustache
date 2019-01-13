@@ -1,0 +1,100 @@
+{{#shapes}}
+$svg-{{base}} = ({{position.absolute.x}} - {{padding.right}})/10rem ({{position.absolute.y}} - {{padding.bottom}})/10rem {{width.inner}}/10rem {{height.inner}}/10rem {{spriteWidth}}/10rem {{spriteHeight}}/10rem '{{{sprite}}}' '{{{name}}}' {{width.outer}}/10rem {{height.outer}}/10rem
+{{/shapes}}
+
+svg-padding = ({{padding.top}} / 10rem);
+
+svg-get-width(svg-sprite)
+	svg-width = svg-sprite[2]
+
+svg-get-height(svg-sprite)
+	svg-height = svg-sprite[3]
+
+svg-get-size(svg-sprite)
+	return {
+		width: svg-get-width(svg-sprite)
+		height: svg-get-height(svg-sprite)
+	}
+
+svg-get-full-width(svg-sprite)
+	svg-full-width = svg-sprite[8]
+
+svg-get-full-height(svg-sprite)
+	svg-full-height = svg-sprite[9]
+
+svg-get-full-size(svg-sprite)
+	return {
+		width: svg-get-full-width(svg-sprite)
+		height: svg-get-full-height(svg-sprite)
+	}
+
+svg-get-sprite-size(svg-sprite)
+	return {
+		width: svg-sprite[4]
+		height: svg-sprite[5]
+	}
+
+svg-sprite-size(svg-sprite, k = 1)
+	sprite-size = svg-get-sprite-size(svg-sprite)
+	background-size:  sprite-size.width * k sprite-size.height * k
+
+svg-k-width(svg-sprite,width)
+	svg-k = (width / svg-get-full-width(svg-sprite))
+
+svg-k-height(svg-sprite,height)
+	svg-k = (height / svg-get-full-height(svg-sprite))
+
+svg-get-k(svg-sprite,width = 0, height = 0, k = 1)
+	if width != 0
+		svg-k = svg-k-width(svg-sprite,width)
+	else
+		if height != 0
+			svg-k = svg-k-height(svg-sprite,height)
+		else
+			svg-k = k
+	return svg-k
+
+svg-get-position(svg-sprite)
+	return {
+		x: svg-sprite[0],
+		y: svg-sprite[1]
+	}
+
+svg-position(svg-sprite, k = 1)
+	position = svg-get-position(svg-sprite)
+	background-position: position.x * k  position.y * k
+
+bg-svg(svg-sprite, repeat = no-repeat, k = 1, width = 0, height = 0)
+	background-repeat: repeat
+	background-image: url(''+$pathToDevImg+'{{sprite}}')
+	bg-svg-scale(svg-sprite, k, width, height)
+
+bg-svg-scale(svg-sprite, k = 1, width = 0, height = 0)
+	svg-k = svg-get-k(svg-sprite,width,height,k)
+	svg-position(svg-sprite, svg-k)
+	svg-size(svg-sprite, svg-k)
+	svg-sprite-size(svg-sprite, svg-k)
+
+svg-size(svg-sprite, k = 1)
+	size = svg-get-size(svg-sprite)
+	width: size.width * k
+	height: size.height * k
+
+svg-fullsize(svg-sprite, k = 1)
+	svg-full-width = svg-sprite[8]
+	svg-full-height = svg-sprite[9]
+	width: svg-full-width * k
+	height: svg-full-height * k
+
+{{#shapes}}
+
+.icon_svg--{{base}}
+	bg-svg($svg-{{base}})
+
+.icon_svg--{{base}}-size
+	svg-size($svg-{{base}})
+
+.icon_svg--{{base}}-fullsize
+	svg-fullsize($svg-{{base}})
+
+{{/shapes}}

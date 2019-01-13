@@ -1,0 +1,24 @@
+include blocks/caution
+
+| <?
+| $sourceSuffix = '%=min=%';
+| ?>
+
+doctype html
+html
+  head
+    block head
+      include blocks/head
+      +head(head)
+  body
+    script(src!='<?=urlV("%=PATH_JS=%/init".$sourceSuffix.".js")?>')
+    block header
+      include blocks/header
+      +header(header && header.defaults)
+    main.grid <?=$CONTENT?>
+    .loader.js-loader: .loader_box
+    block footer
+      include blocks/footer
+      +footer(footer && footer.defaults)
+    script(src!='<?=urlV("%=PATH_JS=%/libs".$sourceSuffix.".js")?>')
+    script(src!='<?=urlV("%=PATH_JS=%/scripts".$sourceSuffix.".js")?>')

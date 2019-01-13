@@ -1,0 +1,14 @@
+include ../modules/_modules
++module(MODULE.DEFINE_VIEW, {title: 'Попутчики', id: 0, view: 'Index'})
+
+block content
+  .page.page--index(data-view!='<?=PAGE_JS_VIEW?>')
+    include ../blocks/section-1
+    include ../blocks/section-map
+    include ../blocks/section-about
+    include ../blocks/works
+    include ../blocks/routes
+    include ../blocks/calendar
+    include ../blocks/custom
+    include ../blocks/benefits
+    include ../blocks/social

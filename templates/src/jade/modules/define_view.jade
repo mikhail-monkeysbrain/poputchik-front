@@ -1,0 +1,13 @@
+mixin define_view(data)
+  - data = data || {}
+  - title = data.title || 'Заголовок страницы'
+  - id = data.id || 0
+  - view = data.view || 'Index'
+
+  include ../blocks/caution
+
+  | <?
+  | define('PAGE_TITLE','#{title}');
+  | define('PAGE_SECTION_ID','#{id}');
+  | define('PAGE_JS_VIEW','#{view}');
+  | ?>

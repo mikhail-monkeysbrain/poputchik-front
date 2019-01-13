@@ -1,0 +1,18 @@
+mixin header(data)
+  - data = data || {}
+  header.header
+    .container.header--container
+      a(href="/").header--login 
+        i.fas.fa-sign-in-alt
+        |Войти
+      .header--nav
+        a(href="/").header--nav--logo
+          img(src="/templates/build/images/content/logo.png", alt="logo").header--logo
+        nav.header--nav--menu
+          a(href="/#map").header--nav--item География
+          a(href="/#routes").header--nav--item Стоимость
+          a(href="/#calendar").header--nav--item Бронирование
+          a(href="/#social").header--nav--item Контакты
+        a(href="tel:+79000000000").header--phone 
+          i.fas.fa-phone
+          |+79000000000

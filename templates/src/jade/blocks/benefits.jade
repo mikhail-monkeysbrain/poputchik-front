@@ -1,0 +1,32 @@
+section#about.about__benefits
+  .about--container.container
+    h2.about--heading
+      | Наши преимущества
+    .about--benefits
+      .flip-container(ontouchstart="this.classList.toggle('hover')")
+        .flipper
+          .front
+            i.fas.fa-money-bill
+            p Единая цена поездки не выше, чем на сайте!
+          .back
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, ipsam.
+      .flip-container(ontouchstart="this.classList.toggle('hover')")
+        .flipper
+          .front
+            i.fas.fa-gifts
+            p Комфортная поездка с бонусами во время пути
+          .back
+            p В поездке мы предлагаем:
+            p Теплые, уютные пледы
+            p Красивые и удобные подушки
+            p Бутылки с питьевой водой
+      .flip-container(ontouchstart="this.classList.toggle('hover')")
+        .flipper
+          .front
+            i.fas.fa-comments
+            p Возможность оставить отзывы о поездке
+          .back.review
+            a(href="https://vk.com/poputchikitxn" target="_blank").review__vk 
+              i.fab.fa-vk
+            a(href="https://www.instagram.com/poputchiktixn/?hl=ru" target="_blank").review__instagram
+              i.fab.fa-instagram

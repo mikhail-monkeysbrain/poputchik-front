@@ -1,0 +1,118 @@
+$svg-test-circ = (0 - 8)/10rem (0 - 8)/10rem 51/10rem 51/10rem 134/10rem 134/10rem 'sprite.svg' 'test-circ' 67/10rem 67/10rem
+$svg-test-rect = (-67 - 8)/10rem (0 - 8)/10rem 51/10rem 51/10rem 134/10rem 134/10rem 'sprite.svg' 'test-rect' 67/10rem 67/10rem
+$svg-test-star = (0 - 8)/10rem (-67 - 8)/10rem 51/10rem 51/10rem 134/10rem 134/10rem 'sprite.svg' 'test-star' 67/10rem 67/10rem
+
+svg-padding = (8 / 10rem);
+
+svg-get-width(svg-sprite)
+	svg-width = svg-sprite[2]
+
+svg-get-height(svg-sprite)
+	svg-height = svg-sprite[3]
+
+svg-get-size(svg-sprite)
+	return {
+		width: svg-get-width(svg-sprite)
+		height: svg-get-height(svg-sprite)
+	}
+
+svg-get-full-width(svg-sprite)
+	svg-full-width = svg-sprite[8]
+
+svg-get-full-height(svg-sprite)
+	svg-full-height = svg-sprite[9]
+
+svg-get-full-size(svg-sprite)
+	return {
+		width: svg-get-full-width(svg-sprite)
+		height: svg-get-full-height(svg-sprite)
+	}
+
+svg-get-sprite-size(svg-sprite)
+	return {
+		width: svg-sprite[4]
+		height: svg-sprite[5]
+	}
+
+svg-sprite-size(svg-sprite, k = 1)
+	sprite-size = svg-get-sprite-size(svg-sprite)
+	background-size:  sprite-size.width * k sprite-size.height * k
+
+svg-k-width(svg-sprite,width)
+	svg-k = (width / svg-get-full-width(svg-sprite))
+
+svg-k-height(svg-sprite,height)
+	svg-k = (height / svg-get-full-height(svg-sprite))
+
+svg-get-k(svg-sprite,width = 0, height = 0, k = 1)
+	if width != 0
+		svg-k = svg-k-width(svg-sprite,width)
+	else
+		if height != 0
+			svg-k = svg-k-height(svg-sprite,height)
+		else
+			svg-k = k
+	return svg-k
+
+svg-get-position(svg-sprite)
+	return {
+		x: svg-sprite[0],
+		y: svg-sprite[1]
+	}
+
+svg-position(svg-sprite, k = 1)
+	position = svg-get-position(svg-sprite)
+	background-position: position.x * k  position.y * k
+
+bg-svg(svg-sprite, repeat = no-repeat, k = 1, width = 0, height = 0)
+	background-repeat: repeat
+	background-image: url(''+$pathToDevImg+'sprite.svg')
+	bg-svg-scale(svg-sprite, k, width, height)
+
+bg-svg-scale(svg-sprite, k = 1, width = 0, height = 0)
+	svg-k = svg-get-k(svg-sprite,width,height,k)
+	svg-position(svg-sprite, svg-k)
+	svg-size(svg-sprite, svg-k)
+	svg-sprite-size(svg-sprite, svg-k)
+
+svg-size(svg-sprite, k = 1)
+	size = svg-get-size(svg-sprite)
+	width: size.width * k
+	height: size.height * k
+
+svg-fullsize(svg-sprite, k = 1)
+	svg-full-width = svg-sprite[8]
+	svg-full-height = svg-sprite[9]
+	width: svg-full-width * k
+	height: svg-full-height * k
+
+
+.icon_svg--test-circ
+	bg-svg($svg-test-circ)
+
+.icon_svg--test-circ-size
+	svg-size($svg-test-circ)
+
+.icon_svg--test-circ-fullsize
+	svg-fullsize($svg-test-circ)
+
+
+.icon_svg--test-rect
+	bg-svg($svg-test-rect)
+
+.icon_svg--test-rect-size
+	svg-size($svg-test-rect)
+
+.icon_svg--test-rect-fullsize
+	svg-fullsize($svg-test-rect)
+
+
+.icon_svg--test-star
+	bg-svg($svg-test-star)
+
+.icon_svg--test-star-size
+	svg-size($svg-test-star)
+
+.icon_svg--test-star-fullsize
+	svg-fullsize($svg-test-star)
+

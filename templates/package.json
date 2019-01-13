@@ -1,0 +1,77 @@
+{
+  "name": "site",
+  "version": "0.1.0",
+  "license" : "MIT",
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "cssnano": "^3.4.0",
+    "freeport": "^1.0.5",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-changed": "^1.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-less": "^3.5.0",
+    "gulp-newer": "^1.2.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-standard": "^10.1.2",
+    "gulp-stylus": "^2.7.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^5.0.0",
+    "gulp-wave": "file:gulp/core/gulp-wave",
+    "socket.io": "^2.1.0"
+  },
+  "optionalDependencies": {
+    "done_message": "file:gulp/modules/done_message",
+    "jade-templates": "file:gulp/modules/jade-templates",
+    "png-sprite": "file:gulp/modules/png-sprite",
+    "svg-sprite": "file:gulp/modules/svg-sprite"
+  },
+  "dependencies": {
+    "backbone": "^1.3.3",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.10",
+    "normalize.css": "^8.0.0",
+    "swiper": "^4.2.6"
+  },
+  "scripts": {
+    "dev": "gulp",
+    "release": "gulp release"
+  },
+  "babel": {
+    "ignore": [
+      "src/js/libs",
+      "node_modules"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "src/js/libs",
+      "node_modules"
+    ],
+    "envs": [
+      "browser",
+      "jquery",
+      "es8"
+    ],
+    "globals": [
+      "jQuery",
+      "jquery",
+      "$",
+      "lodash",
+      "_",
+      "Backbone",
+      "Modernizr",
+      "device",
+      "Swiper",
+      "app"
+    ]
+  }
+}

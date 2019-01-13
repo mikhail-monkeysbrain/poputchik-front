@@ -1,0 +1,103 @@
+$png-arrow = round(65*0.1rem, 1) round(13*0.1rem, 1) round(-65*0.1rem, 1) round(-13*0.1rem, 1) round(17*0.1rem, 1) round(14*0.1rem, 1) round(315*0.1rem, 1) round(41*0.1rem, 1) 'test.png'
+$png-check__checked = round(36*0.1rem, 1) round(13*0.1rem, 1) round(-36*0.1rem, 1) round(-13*0.1rem, 1) round(21*0.1rem, 1) round(27*0.1rem, 1) round(315*0.1rem, 1) round(41*0.1rem, 1) 'test.png'
+$png-radio = round(0*0.1rem, 1) round(13*0.1rem, 1) round(0*0.1rem, 1) round(-13*0.1rem, 1) round(28*0.1rem, 1) round(28*0.1rem, 1) round(315*0.1rem, 1) round(41*0.1rem, 1) 'test.png'
+$png-radio__select = round(90*0.1rem, 1) round(13*0.1rem, 1) round(-90*0.1rem, 1) round(-13*0.1rem, 1) round(14*0.1rem, 1) round(14*0.1rem, 1) round(315*0.1rem, 1) round(41*0.1rem, 1) 'test.png'
+$png-texture = round(0*0.1rem, 1) round(0*0.1rem, 1) round(0*0.1rem, 1) round(0*0.1rem, 1) round(315*0.1rem, 1) round(5*0.1rem, 1) round(315*0.1rem, 1) round(41*0.1rem, 1) 'test.png'
+
+png-get-width(png-sprite)
+	png-width = png-sprite[4]
+png-get-height(png-sprite)
+	png-height = png-sprite[5]
+png-get-size(png-sprite)
+	return {
+		width: png-get-width(png-sprite),
+		height: png-get-height(png-sprite)
+	}
+png-get-sprite-size(png-sprite)
+	return {
+		width: png-sprite[6],
+		height: png-sprite[7]
+	}
+
+png-sprite-size(png-sprite, k = 1)
+	sprite-size = png-get-sprite-size(png-sprite)
+	background-size: sprite-size.width sprite-size.height
+
+png-k-width(png-sprite,width)
+	png-k = (width / png-get-width(png-sprite))
+
+png-k-height(png-sprite,height)
+	png-k = (height / png-get-height(png-sprite))
+
+png-get-k(png-sprite,width = 0, height = 0, k = 1)
+	if width != 0
+		png-k = png-k-width(png-sprite,width)
+	else
+		if	height != 0
+			png-k =png-k-height(png-sprite,height)
+		else
+			png-k = k
+	return png-k
+
+png-get-position(png-sprite)
+	return {
+		x: png-sprite[2],
+		y: png-sprite [3]
+	}
+png-position(png-sprite, k = 1)
+	position = png-get-position(png-sprite)
+	background-position: position.x  position.y
+
+bg-png(png-sprite, repeat = no-repeat, k = 1, width = 0, height = 0)
+	png-sprite-image(png-sprite)
+	bg-png-scale(png-sprite, k, width, height)
+	background-repeat: repeat
+
+bg-png-scale(png-sprite, k = 1, width = 0, height = 0)
+	png-k = png-get-k(png-sprite, width, height, k)
+	png-position(png-sprite, png-k)
+	png-size(png-sprite, png-k)
+	png-sprite-size(png-sprite, png-k)
+
+png-get-sprite-image(png-sprite)
+	png-sprite-image = png-sprite[8]
+
+png-sprite-image(png-sprite)
+	png-sprite-image = png-get-sprite-image(png-sprite)
+	background-image: url(''+$pathToImg+'png-sprites/'+png-sprite-image)
+
+png-size(png-sprite, k = 1)
+	size = png-get-size(png-sprite)
+	width: size.width
+	height: size.height
+
+.icon_png--arrow {
+	bg-png($png-arrow);
+}
+.icon_png--arrow-size {
+	png-size($png-arrow);
+}
+.icon_png--check__checked {
+	bg-png($png-check__checked);
+}
+.icon_png--check__checked-size {
+	png-size($png-check__checked);
+}
+.icon_png--radio {
+	bg-png($png-radio);
+}
+.icon_png--radio-size {
+	png-size($png-radio);
+}
+.icon_png--radio__select {
+	bg-png($png-radio__select);
+}
+.icon_png--radio__select-size {
+	png-size($png-radio__select);
+}
+.icon_png--texture {
+	bg-png($png-texture);
+}
+.icon_png--texture-size {
+	png-size($png-texture);
+}

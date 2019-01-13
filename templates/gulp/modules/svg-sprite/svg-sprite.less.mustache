@@ -1,0 +1,102 @@
+{{#shapes}}
+	@svg-{{base}}: ({{position.absolute.x}} - {{padding.right}})/10rem ({{position.absolute.y}} - {{padding.bottom}})/10rem {{width.inner}}/10rem {{height.inner}}/10rem {{spriteWidth}}/10rem {{spriteHeight}}/10rem '{{{sprite}}}' '{{{name}}}' {{width.outer}}/10rem {{height.outer}}/10rem;
+{{/shapes}}
+
+@svg-padding: {{padding.top}}/10rem;
+
+.svg-get-width(@svg-sprite) {
+	@svg-width: extract(@svg-sprite,3);
+}
+.svg-get-height(@svg-sprite) {
+	@svg-height: extract(@svg-sprite,4);
+}
+.svg-get-size(@svg-sprite) {
+	.svg-get-width(@svg-sprite);
+	.svg-get-height(@svg-sprite);
+}
+.svg-get-full-width(@svg-sprite) {
+	@svg-full-width: extract(@svg-sprite,9);
+}
+.svg-get-full-height(@svg-sprite) {
+	@svg-full-height: extract(@svg-sprite,10);
+}
+.svg-get-full-size(@svg-sprite) {
+	.svg-get-full-width(@svg-sprite);
+	.svg-get-full-height(@svg-sprite);
+}
+.svg-get-sprite-size(@svg-sprite) {
+	@svg-sprite-width: extract(@svg-sprite,5);
+    @svg-sprite-height: extract(@svg-sprite,6);
+}
+
+.svg-sprite-size(@svg-sprite, @k: 1) {
+	.svg-get-sprite-size(@svg-sprite);
+	background-size:  @svg-sprite-width * @k @svg-sprite-height * @k;
+}
+
+.svg-k-width(@svg-sprite,@width) {
+	.svg-get-full-width(@svg-sprite);
+	@svg-k: @width / @svg-full-width;
+}
+.svg-k-height(@svg-sprite,@height) {
+	.svg-get-full-height(@svg-sprite);
+	@svg-k: @height / @svg-full-height;
+}
+.svg-k(@svg-sprite,@width: 0, @height: 0, @k: 1) when not (@width = 0) {
+	.svg-k-width(@svg-sprite,@width);
+}
+.svg-k(@svg-sprite,@width: 0, @height: 0, @k: 1) when not (@height = 0) {
+	.svg-k-height(@svg-sprite,@height);
+}
+.svg-k(@svg-sprite,@width: 0, @height: 0, @k: 1) when (@width = 0) and (@height = 0) {
+	@svg-k: @k;
+}
+
+.svg-get-position(@svg-sprite) {
+	@svg-position-x: extract(@svg-sprite,1);
+	@svg-position-y: extract(@svg-sprite,2);
+}
+
+.svg-position(@svg-sprite, @k: 1) {
+	.svg-get-position(@svg-sprite);
+	background-position: @svg-position-x * @k  @svg-position-y * @k;
+}
+
+.bg-svg(@svg-sprite, @repeat: no-repeat, @k: 1, @width: 0, @height: 0) {
+    background-image: url('@{pathToDevImg}{{sprite}}');
+	.bg-svg-scale(@svg-sprite, @k: @k, @width: @width, @height: @height);
+    background-repeat: @repeat;
+}
+.bg-svg-scale(@svg-sprite, @k: 1, @width: 0, @height: 0){
+	.svg-k(@svg-sprite,@width: @width, @height: @height,@k: @k);
+	.svg-position(@svg-sprite, @svg-k);
+	.svg-size(@svg-sprite, @svg-k);
+	.svg-sprite-size(@svg-sprite, @svg-k);
+}
+
+.svg-size(@svg-sprite, @k: 1) {
+	.svg-get-size(@svg-sprite);
+    width: @svg-width * @k;
+    height: @svg-height * @k;
+}
+
+.svg-fullsize(@svg-sprite, @k:1) {
+	@svg-full-width: extract(@svg-sprite,9);
+    @svg-full-height: extract(@svg-sprite,10);
+    width: @svg-full-width * @k;
+    height: @svg-full-height * @k;
+}
+
+{{#shapes}}
+
+	.icon_svg--{{base}} {
+		.bg-svg(@svg-{{base}});
+	}
+	.icon_svg--{{base}}-size {
+		.svg-size(@svg-{{base}});
+	}
+	.icon_svg--{{base}}-fullsize {
+		.svg-fullsize(@svg-{{base}});
+	}
+
+{{/shapes}}

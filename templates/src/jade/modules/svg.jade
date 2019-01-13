@@ -1,0 +1,8 @@
+mixin svg(data)
+  - data = data || {}
+  svg.svg(class=data.baseCls ? data.baseCls : 'icon_svg--' + data.id + '-fullsize', role=data.title ? 'img' : 'presentation')&attributes(
+  attributes)
+    - if (data.title)
+    title
+      = data.title
+    use(xlink:href!='<?=SITE_URL?>templates/src/images/symbols.svg?v=<?=SVG_SPRITE_VERSION?>' + "#" + data.id)

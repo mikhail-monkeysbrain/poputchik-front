@@ -1,0 +1,17 @@
+DirectoryIndex index.htm index.php index.html
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+
+    RewriteEngine On
+
+    # временные редирект для верстки
+    RewriteCond %{REQUEST_URI} !\.(jpg|jpeg|png|gif|svg|swf|flv|css|js|doc|xls|pdf|cur|ico)$ [NC]       # кроме таких запросов
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteRule ^(.+)$ index.php?REQUEST_URI=$1 [L,QSA]
+
+</IfModule>
+
+AddType video/mp4 .mp4

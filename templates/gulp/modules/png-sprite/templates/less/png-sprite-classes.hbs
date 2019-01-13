@@ -1,0 +1,12 @@
+{{#extend "png-sprite"}}
+{{#content "png-sprite-classes"}}
+{{#items}}
+.icon_png--{{name}} {
+	.bg-png(@png-{{name}});
+}
+.icon_png--{{name}}-size {
+	.png-size(@png-{{name}});
+}
+{{/items}}
+{{/content}}
+{{/extend}}

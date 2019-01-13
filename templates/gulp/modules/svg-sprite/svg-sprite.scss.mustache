@@ -1,0 +1,124 @@
+@import '../core/variables';
+
+{{#shapes}}
+	$svg-{{base}}: ({{position.absolute.x}} - {{padding.right}})*0.1rem ({{position.absolute.y}} - {{padding.bottom}})*0.1rem {{width.inner}}*0.1rem {{height.inner}}*0.1rem {{spriteWidth}}*0.1rem {{spriteHeight}}*0.1rem '{{{sprite}}}' '{{{name}}}' {{width.outer}}*0.1rem {{height.outer}}*0.1rem;
+{{/shapes}}
+
+$svg-padding: {{padding.top}}/10rem;
+
+@mixin svg-get-width($svg-sprite) {
+	$svg-width: nth($svg-sprite,3);
+	width: $svg-width;
+}
+
+@mixin svg-get-height($svg-sprite) {
+	$svg-height: nth($svg-sprite,4);
+	height: $svg-height;
+}
+
+@mixin svg-get-size($svg-sprite) {
+	@include svg-get-width($svg-sprite);
+	@include svg-get-height($svg-sprite);
+}
+
+@mixin svg-get-full-width($svg-sprite) {
+	$svg-full-width: nth($svg-sprite,9);
+	width: $svg-full-width;
+}
+
+@mixin svg-get-full-height($svg-sprite) {
+	$svg-full-height: nth($svg-sprite,10);
+	height: $svg-full-height;
+}
+
+@mixin svg-get-full-size($svg-sprite) {
+	@include svg-get-full-width($svg-sprite);
+	@include svg-get-full-height($svg-sprite);
+}
+
+@mixin svg-get-sprite-size($svg-sprite) {
+	$svg-sprite-width: nth($svg-sprite,5);
+    $svg-sprite-height: nth($svg-sprite,6);
+	width: $svg-sprite-width;
+	height: $svg-sprite-height;
+}
+
+@mixin svg-sprite-size($svg-sprite, $k: 1) {
+	$svg-sprite-width: nth($svg-sprite,5);
+	$svg-sprite-height: nth($svg-sprite,6);
+	background-size: $svg-sprite-width * $k $svg-sprite-height * $k;
+}
+
+@mixin svg-k-width($svg-sprite,$width) {
+	$svg-full-width: nth($svg-sprite,9);
+	$svg-k: $width / $svg-full-width;
+}
+
+@mixin svg-k-height($svg-sprite,$height) {
+	$svg-full-height: nth($svg-sprite,10);
+	$svg-k: $height / $svg-full-height;
+}
+
+@mixin svg-k($svg-sprite,$width: 0, $height: 0, $k: 1) {
+	@if ($width != 0) {
+		@include svg-k-width($svg-sprite,$width)
+	} @else if ($height != 0) {
+		@include svg-k-height($svg-sprite,$height);
+	} @else {
+		$svg-k: $k;
+	}
+}
+
+@mixin svg-get-position($svg-sprite) {
+	$svg-position-x: nth($svg-sprite,1);
+	$svg-position-y: nth($svg-sprite,2);
+}
+
+@mixin svg-position($svg-sprite, $k: 1) {
+	$svg-position-x: nth($svg-sprite,1);
+	$svg-position-y: nth($svg-sprite,2);
+	background-position: $svg-position-x  $svg-position-y;
+}
+
+@mixin svg-size($svg-sprite, $k: 1) {
+	$svg-width: nth($svg-sprite,3);
+	$svg-height: nth($svg-sprite,4);
+    width: $svg-width * $k;
+    height: $svg-height * $k;
+}
+
+@mixin svg-fullsize($svg-sprite, $k:1) {
+	$svg-full-width: nth($svg-sprite,9);
+    $svg-full-height: nth($svg-sprite,10);
+    width: $svg-full-width * $k;
+    height: $svg-full-height * $k;
+}
+
+@mixin bg-svg-scale($svg-sprite, $k: 1, $width: 0, $height: 0){
+	@include svg-k($svg-sprite,$width: $width, $height: $height,$k: $k);
+	@include svg-position($svg-sprite, $k);
+	@include svg-size($svg-sprite, $k);
+	@include svg-sprite-size($svg-sprite, $k);
+}
+
+@mixin bg-svg($svg-sprite, $repeat: no-repeat, $k: 1, $width: 0, $height: 0) {
+	background-image: url('#{$pathToDevImg}{{sprite}}');
+	@include bg-svg-scale($svg-sprite, $k: $k, $width: $width, $height: $height);
+	background-repeat: $repeat;
+}
+
+{{#shapes}}
+
+	.icon_svg--{{base}} {
+		@include bg-svg($svg-{{base}});
+	}
+
+	.icon_svg--{{base}}-size {
+		@include svg-size($svg-{{base}});
+	}
+
+	.icon_svg--{{base}}-fullsize {
+		@include svg-fullsize($svg-{{base}});
+	}
+
+{{/shapes}}

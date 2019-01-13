@@ -1,0 +1,19 @@
+{
+  "name": "jade-templates",
+  "version": "0.0.1",
+  "description": "Jade шаблоны для wave (без движка)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Koshevarov Sergey <gondragos@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-jade": "^1.1.0",
+    "gulp-replace-task": "^0.11.0",
+    "lodash.defaults": "^4.2.0",
+    "lodash.foreach": "^4.5.0",
+    "merge": "^1.2.0",
+    "lodash": "^4.17.4"
+  }
+}

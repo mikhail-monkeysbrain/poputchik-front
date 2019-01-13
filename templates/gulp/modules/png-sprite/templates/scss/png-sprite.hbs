@@ -1,0 +1,95 @@
+@import '../../core/variables';
+
+{{#block "png-sprite-values"}}
+{{#items}}
+$png-{{name}}: {{x}}*0.1rem {{y}}*0.1rem {{offset_x}}*0.1rem {{offset_y}}*0.1rem {{width}}*0.1rem {{height}}*0.1rem {{total_width}}*0.1rem {{total_height}}*0.1rem '{{{escaped_image}}}';
+{{/items}}
+{{/block}}
+
+{{#block "png-sprite-mixins"}}
+@mixin png-get-width($png-sprite) {
+	$png-width: nth($png-sprite,5);
+	width: $png-width;
+}
+
+@mixin png-get-height($png-sprite) {
+	$png-height: nth($png-sprite,6);
+	height: $png-height;
+}
+
+@mixin png-get-size($png-sprite) {
+	@include png-get-width($png-sprite);
+	@include png-get-height($png-sprite);
+}
+
+@mixin png-get-sprite-size($png-sprite) {
+	$png-sprite-width: nth($png-sprite,7);
+	$png-sprite-height: nth($png-sprite,8);
+	width: $png-sprite-width;
+	height: $png-sprite-height;
+}
+
+@mixin png-sprite-size($png-sprite, $k: 1) {
+	$png-sprite-width: nth($png-sprite,7);
+	$png-sprite-height: nth($png-sprite,8);
+	background-size:  $png-sprite-width * $k $png-sprite-height * $k;
+}
+
+@mixin png-k-width($png-sprite,$width) {
+	$png-width: nth($png-sprite,5);
+	$png-k: $width / $png-width;
+}
+
+@mixin png-k-height($png-sprite,$height) {
+	$png-height: nth($png-sprite,6);
+	$png-k: $height / $png-height;
+}
+
+@mixin png-k($png-sprite,$width: 0, $height: 0, $k: 1) {
+	@if ($width != 0) {
+		@include png-k-width($png-sprite,$width)
+	} @else if ($height != 0) {
+		@include png-k-height($png-sprite,$height);
+	} @else {
+		$png-k: $k;
+	}
+}
+
+@mixin png-get-position($png-sprite) {
+	$png-position-x: nth($png-sprite,3);
+	$png-position-y: nth($png-sprite,4);
+}
+
+@mixin png-position($png-sprite, $k: 1) {
+	$png-position-x: nth($png-sprite,3);
+	$png-position-y: nth($png-sprite,4);
+	background-position: $png-position-x * $k  $png-position-y * $k;
+}
+
+@mixin png-sprite-image($png-sprite) {
+	$png-sprite-image: nth($png-sprite,9);
+	background-image: url('#{$pathToImg}png-sprites/#{$png-sprite-image}');
+}
+
+@mixin png-size($png-sprite, $k: 1) {
+	$png-width: nth($png-sprite,5);
+	$png-height: nth($png-sprite,6);
+	width: $png-width * $k;
+	height: $png-height * $k;
+}
+
+@mixin bg-png-scale($png-sprite, $k: 1, $width: 0, $height: 0){
+	@include png-k($png-sprite,$width: $width, $height: $height, $k: $k);
+	@include png-position($png-sprite, $k);
+	@include png-size($png-sprite, $k);
+	@include png-sprite-size($png-sprite, $k);
+}
+
+@mixin bg-png($png-sprite, $repeat: no-repeat, $k: 1, $width: 0, $height: 0) {
+	@include png-sprite-image($png-sprite);
+	@include bg-png-scale($png-sprite, $k: $k, $width: $width, $height: $height);
+	background-repeat: $repeat;
+}
+{{/block}}
+
+{{#block "png-sprite-classes"}}{{/block}}

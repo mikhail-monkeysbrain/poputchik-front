@@ -1,0 +1,67 @@
+@import '../core/variables.styl';
+
+.footer
+  background $blue
+  padding 3rem
+  p
+    color #fff
+    font-size:  2.5rem
+    padding-bottom 1rem
+  hr
+    color #fff
+    margin 2rem 0
+  &--login
+    position: absolute
+    right: 0
+    top: 0
+  &--phone 
+    font-size: 2rem
+    font-weight 600
+    text-transform uppercase
+    text-shadow: 0.2rem 0.2rem 0.5rem #00000080
+  &__bottom
+    display flex
+    justify-content space-between
+    align-items center
+  &--nav
+    display flex
+    justify-content space-between
+    align-items center
+    display flex
+    justify-content space-between
+    align-content: center
+    width 100%
+    &__middle
+      .footer--nav--menu
+        width 100%
+        justify-content flex-start
+        .footer--nav--item
+          margin-right 4rem
+          position relative
+          font-weight 400
+          &:nth-last-child(1)
+            &::after
+              display none
+          &::after
+            content '|'
+            position absolute
+            right -2rem
+    &--item
+      color #fff
+      font-weight 600
+      text-transform uppercase
+      position relative
+      text-shadow: 0.2rem 0.2rem 0.5rem #00000080
+      font-size: 1.7rem
+    &--menu
+      width 75rem
+      display flex
+      justify-content space-between
+      flex-wrap: wrap
+
+.btn__footer
+  margin 0 !important
+  color #ffffff
+  border-color: #fff
+  &:hover
+    box-shadow: 0 0 5rem -.5rem #fff

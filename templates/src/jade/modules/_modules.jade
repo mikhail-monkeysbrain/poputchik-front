@@ -1,0 +1,15 @@
+- var MODULE = {}
+- MODULE.DEFINE_VIEW = "define_view"
+- MODULE.SVG = "svg"
+mixin module(name,data)
+	- data = data || {}
+	if (name=="define_view")
+		include define_view
+		+define_view(data)&attributes(data&&data.attrs||attributes)
+			if(block)
+				block
+	if (name=="svg")
+		include svg
+		+svg(data)&attributes(data&&data.attrs||attributes)
+			if(block)
+				block

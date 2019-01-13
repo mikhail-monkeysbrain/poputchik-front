@@ -1,0 +1,17 @@
+{
+  "name": "png-sprite",
+  "version": "0.8.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Koshevarov Sergey",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.0.1",
+    "gulp-newer": "^1.2.0",
+    "gulp.spritesmith": "^6.2.1",
+    "through2": "^2.0.1"
+  }
+}

@@ -1,0 +1,85 @@
+{{#block "png-sprite-values"}}
+{{#items}}
+@png-{{name}}: {{x}}*0.1rem {{y}}*0.1rem {{offset_x}}*0.1rem {{offset_y}}*0.1rem {{width}}*0.1rem {{height}}*0.1rem {{total_width}}*0.1rem {{total_height}}*0.1rem '{{{escaped_image}}}';
+{{/items}}
+{{/block}}
+
+{{#block "png-sprite-mixins"}}
+.png-get-width(@png-sprite) {
+	@png-width: extract(@png-sprite,5);
+}
+.png-get-height(@png-sprite) {
+	@png-height: extract(@png-sprite,6);
+}
+.png-get-size(@png-sprite) {
+	.png-get-width(@png-sprite);
+	.png-get-height(@png-sprite);
+}
+.png-get-sprite-size(@png-sprite) {
+	@png-sprite-width: extract(@png-sprite,7);
+	@png-sprite-height: extract(@png-sprite,8);
+}
+
+.png-sprite-size(@png-sprite, @k: 1) {
+	.png-get-sprite-size(@png-sprite);
+	background-size:  @png-sprite-width * @k @png-sprite-height * @k;
+}
+
+.png-k-width(@png-sprite,@width) {
+	.png-get-width(@png-sprite);
+	@png-k: @width / @png-width;
+}
+.png-k-height(@png-sprite,@height) {
+	.png-get-height(@png-sprite);
+	@png-k: @height / @png-height;
+}
+.png-k(@png-sprite,@width: 0, @height: 0, @k: 1) when not (@width = 0) {
+	.png-k-width(@png-sprite,@width);
+}
+.png-k(@png-sprite,@width: 0, @height: 0, @k: 1) when not (@height = 0) {
+	.png-k-height(@png-sprite,@height);
+}
+.png-k(@png-sprite,@width: 0, @height: 0, @k: 1) when (@width = 0) and (@height = 0) {
+	@png-k: @k;
+}
+
+.png-get-position(@png-sprite) {
+	@png-position-x: extract(@png-sprite,3);
+	@png-position-y: extract(@png-sprite,4);
+}
+
+.png-position(@png-sprite, @k: 1) {
+	.png-get-position(@png-sprite);
+	background-position: @png-position-x * @k  @png-position-y * @k;
+}
+
+.bg-png(@png-sprite, @repeat: no-repeat, @k: 1, @width: 0, @height: 0) {
+	.png-sprite-image(@png-sprite);
+	.bg-png-scale(@png-sprite, @k: @k, @width: @width, @height: @height);
+	background-repeat: @repeat;
+}
+
+.bg-png-scale(@png-sprite, @k: 1, @width: 0, @height: 0){
+	.png-k(@png-sprite,@width: @width, @height: @height,@k: @k);
+	.png-position(@png-sprite, @png-k);
+	.png-size(@png-sprite, @png-k);
+	.png-sprite-size(@png-sprite, @png-k);
+}
+
+.png-get-sprite-image(@png-sprite) {
+	@png-sprite-image: extract(@png-sprite,9);
+}
+
+.png-sprite-image(@png-sprite) {
+	.png-get-sprite-image(@png-sprite);
+	background-image: url('@{pathToImg}png-sprites/@{png-sprite-image}');
+}
+
+.png-size(@png-sprite, @k: 1) {
+	.png-get-size(@png-sprite);
+	width: @png-width * @k;
+	height: @png-height * @k;
+}
+{{/block}}
+
+{{#block "png-sprite-classes"}}{{/block}}

@@ -1,0 +1,76 @@
+{{#block "png-sprite-values"}}
+{{#items}}
+$png-{{name}} = round({{x}}*0.1rem, 1) round({{y}}*0.1rem, 1) round({{offset_x}}*0.1rem, 1) round({{offset_y}}*0.1rem, 1) round({{width}}*0.1rem, 1) round({{height}}*0.1rem, 1) round({{total_width}}*0.1rem, 1) round({{total_height}}*0.1rem, 1) '{{{escaped_image}}}'
+{{/items}}
+{{/block}}
+
+{{#block "png-sprite-mixins"}}
+png-get-width(png-sprite)
+	png-width = png-sprite[4]
+png-get-height(png-sprite)
+	png-height = png-sprite[5]
+png-get-size(png-sprite)
+	return {
+		width: png-get-width(png-sprite),
+		height: png-get-height(png-sprite)
+	}
+png-get-sprite-size(png-sprite)
+	return {
+		width: png-sprite[6],
+		height: png-sprite[7]
+	}
+
+png-sprite-size(png-sprite, k = 1)
+	sprite-size = png-get-sprite-size(png-sprite)
+	background-size: sprite-size.width * k sprite-size.height * k
+
+png-k-width(png-sprite,width)
+	png-k = (width / png-get-width(png-sprite))
+
+png-k-height(png-sprite,height)
+	png-k = (height / png-get-height(png-sprite))
+
+png-get-k(png-sprite,width = 0, height = 0, k = 1)
+	if width != 0
+		png-k = png-k-width(png-sprite,width)
+	else
+		if	height != 0
+			png-k =png-k-height(png-sprite,height)
+		else
+			png-k = k
+	return png-k
+
+png-get-position(png-sprite)
+	return {
+		x: png-sprite[2],
+		y: png-sprite [3]
+	}
+png-position(png-sprite, k = 1)
+	position = png-get-position(png-sprite)
+	background-position: position.x * k  position.y * k
+
+bg-png(png-sprite, repeat = no-repeat, k = 1, width = 0, height = 0)
+	png-sprite-image(png-sprite)
+	bg-png-scale(png-sprite, k, width, height)
+	background-repeat: repeat
+
+bg-png-scale(png-sprite, k = 1, width = 0, height = 0)
+	png-k = png-get-k(png-sprite, width, height, k)
+	png-position(png-sprite, png-k)
+	png-size(png-sprite, png-k)
+	png-sprite-size(png-sprite, png-k)
+
+png-get-sprite-image(png-sprite)
+	png-sprite-image = png-sprite[8]
+
+png-sprite-image(png-sprite)
+	png-sprite-image = png-get-sprite-image(png-sprite)
+	background-image: url(''+$pathToImg+'png-sprites/'+png-sprite-image)
+
+png-size(png-sprite, k = 1)
+	size = png-get-size(png-sprite)
+	width: size.width * k
+	height: size.height * k
+{{/block}}
+
+{{#block "png-sprite-classes"}}{{/block}}
