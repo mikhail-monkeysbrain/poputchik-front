@@ -13,29 +13,6 @@
       this.update()
     },
     initConfig: function () {
-      /*
-      <class>: {                                        // Условия выставления класса <class>
-        if: <if>                                        // условие (функция(<data>,<cfg>)) <data> содержит $el, elWidth, elHeight
-        element: <selector||element||$element||domKey>  // элемент по которому происходят рассчеты размеров
-        rem: <px>                                       // коэфициент перевода rem => px (отменяет зависимость по base)
-        from: {
-          width: <fromWidth>,                           // Минимальная ширина элемента
-          height: <fromHeight>                          // Минимальная высота элемента
-        },
-        to: {
-           width: <toWidth>,                            // Максимальная ширина элемента
-           height: <toHeight>                           // Максимальная высота элемента
-        },
-        base: {
-           width: <toWidth>,                            // Базовая элемента для рассчета коэфициента
-           height: <toHeight>                           // Базовая элемента экрана для рассчета коэфициента
-        },
-        k: <k>                                          // Дополнительный коэффициент
-        setClass: false||true||<class>                  // выставлять класс при выполнении условий
-        setNoClass: false||true||<class>                // выставлять класс при невыполнении условий
-        setDeviceType: true||false||<type>              // устанавливать новый deviceType при соответствии условиям (key <class> из конфигурации или конкретный <type>)
-      }
-     */
       const self = this
       self.defaults = {
         if: false,
@@ -85,6 +62,19 @@
           },
           to: {
             width: 1024
+          },
+          k: 2,
+          setClass: true
+        },
+        'mobile': {
+          base: {
+            width: 1920
+          },
+          from: {
+            width: 200
+          },
+          to: {
+            width: 580
           },
           k: 2,
           setClass: true

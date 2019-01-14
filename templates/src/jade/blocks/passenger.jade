@@ -1,0 +1,97 @@
+.container
+  section.profile.parallax
+    .profile--container.container
+      .profile--heading
+        h1 
+        h2 
+          | Михаил Александрович
+          br
+          | Столповских
+    .edit.container.edit__container
+      .avatar--wrapper
+            i.fas.fa-edit
+            img(src="/templates/build/images/content/avatar.jpg", alt="").avatar
+          input(type="file").avatar--download
+      label
+        h3 Ваш номер телефона: 
+        input(type="text" value="+79000000000").edit--input.input__phone
+      label
+        h3 Ваш E-mail: 
+        input(type="text" value="monkeysbrain@yandex.ru").edit--input
+      label
+        h3 Ваш автомобиль: 
+        input(type="text" value="Lada Lagus").edit--input
+      label
+        h3 Количество мест: 
+        input(type="text" value="7").edit--input
+      label.edit--save--wrapper
+        .routes--list--link.btn.btn__transparent.edit--save Сохранить
+    br
+    hr
+    br
+    h2 Ваши поездки
+    br
+    .profile--table
+      .thead
+        .row.row__date Дата
+        .row.row__time Время
+        .row Маршрут
+      .col
+        .row.row__date 10.01.2019
+        .row.row__time 18 : 30
+        .row Тюмень - Нягань
+      .col
+        .row.row__date 10.01.2019
+        .row.row__time 18 : 30
+        .row Тюмень - Нягань
+      .col
+        .row.row__date 10.01.2019
+        .row.row__time 18 : 30
+        .row Тюмень - Нягань
+      .col
+        .row.row__date 10.01.2019
+        .row.row__time 18 : 30
+        .row Тюмень - Нягань
+      .col
+        .row.row__date 10.01.2019
+        .row.row__time 18 : 30
+        .row Тюмень - Нягань
+    br
+    hr
+    br
+    .container.pay--container
+      h3 Ваш баланс - 
+        span 1500
+        | р.
+      .routes--list--link.btn.btn__transparent.edit--save.pay--btn Оплатить
+    br
+    br
+.trip__container.about__benefits
+  .routes--list--link.btn.btn__transparent.edit--save.trip--btn 
+    | Предложить поездку
+  .edit.container.edit__container
+    section#calendar.calendar
+      .calendar--container.container
+        select.dropDown(name='route')
+          option(value="Тюмень - Сургут") Тюмень - Сургут
+          option(value="Сургут -Тюмень") Сургут -Тюмень
+          option(value="Тюмень - Ноябрьск") Тюмень - Ноябрьск
+          option(value="Ноябрьск - Тюмень") Ноябрьск - Тюмень
+          option(value="Нижневартовск - Ноябрьск") Нижневартовск - Ноябрьск
+          option(value="Ноябрьск - Нижневартовск") Ноябрьск - Нижневартовск
+          option(value="Ханты-Мансийск - Нягань") Ханты-Мансийск - Нягань
+          option(value="Нягань - Ханты-Мансийск") Нягань - Ханты-Мансийск
+          option(value="Нягань - Советский") Нягань - Советский
+          option(value="Советский - Нягань") Советский - Нягань
+          option(value="Нягань - Урай") Нягань - Урай
+          option(value="Урай - Нягань") Урай - Нягань
+          option(value="Нягань - Сургут") Нягань - Сургут
+          option(value="Сургут - Нягань") Сургут - Нягань
+      .calendar--datepicker.datepicker
+      label
+        h3 Время отправления: 
+        input(type="text" value="").edit--input.input__phone
+
+      label.edit--save--wrapper
+        .routes--list--link.btn.btn__transparent.edit--save.trip--save Сохранить
+        .routes--list--link.btn.btn__transparent.edit--save.trip--save Отменить

@@ -1,0 +1,40 @@
+section#calendar.calendar
+  .calendar--container.container
+    h2.calendar--heading Мы предлагаем Вам
+    h3.calendar--description быстрые, комфортные и безопасные поездки на автомобилях Hyundai H-1 Starex.
+    select.dropDown(name='route')
+      option(value="2019-1-21,2019-1-24,2019-1-27,2019-0-29") Hyundai H-1 Starex
+      option(value="2019-2-21,2019-2-24,2019-2-27,2019-1-29") Лада Ларгус
+      option(value="2019-2-21,2019-2-24,2019-2-27,2019-1-29") Hyundai Solaris
+  .calendar--datepicker.datepicker
+  .time-select
+    section.time-select--buttons
+      label.time-select--label
+        p 19:00 - 19:10
+          span.time-select__route Выезд из Тюмени
+        input(type="radio" name="time" value="tumen-nagan")
+      label.time-select--label
+        p 18:00 - 18:30
+          span.time-select__route Выезд из Нягани
+        input(type="radio" name="time" value="nagan-tumen")
+  .sheme--container.container
+    .sheme
+      include sheme.jade
+  .form.calendar--form.container
+    .title
+      input#first(type='text', required='', name='first')
+      label(for='first') Как Вас зовут?
+      .line
+    .title
+      input#last(type='text', required='', name='last')
+      label(for='last') E-mail
+      .line
+    .title
+      input#password(type='text', required='', name='password')
+      label(for='password') Телефон
+      .line
+    .title
+      input#cpassword(type='text', required='', name='roll')
+      label(for='cpassword') Комментарий
+      .line
+    a.btn.btn__form Забронировать

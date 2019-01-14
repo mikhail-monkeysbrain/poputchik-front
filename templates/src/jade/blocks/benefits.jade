@@ -1,4 +1,4 @@
-section#about.about__benefits
+section#about.about__benefits.parallax
   .about--container.container
     h2.about--heading
       | Наши преимущества
@@ -16,10 +16,11 @@ section#about.about__benefits
             i.fas.fa-gifts
             p Комфортная поездка с бонусами во время пути
           .back
-            p В поездке мы предлагаем:
-            p Теплые, уютные пледы
-            p Красивые и удобные подушки
-            p Бутылки с питьевой водой
+            // p В поездке мы предлагаем:
+            .about--benefits--item__flex
+              img.about--benefits--item--image(src="/templates/build/images/content/a-1.png", alt="")
+              img.about--benefits--item--image(src="/templates/build/images/content/a-2.png", alt="")
+              img.about--benefits--item--image(src="/templates/build/images/content/a-3.png", alt="")
       .flip-container(ontouchstart="this.classList.toggle('hover')")
         .flipper
           .front

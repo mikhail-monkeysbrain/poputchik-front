@@ -1,0 +1,6 @@
+include ../modules/_modules
++module(MODULE.DEFINE_VIEW, {title: 'Личный кабинет | Пассажир', id: 1, view: 'Profile'})
+
+block content
+  .page.page--profile(data-view!='<?=PAGE_JS_VIEW?>')
+    include ../blocks/passenger

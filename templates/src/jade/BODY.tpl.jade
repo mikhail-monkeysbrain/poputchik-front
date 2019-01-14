@@ -20,5 +20,7 @@ html
     block footer
       include blocks/footer
       +footer(footer && footer.defaults)
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js')
     script(src!='<?=urlV("%=PATH_JS=%/libs".$sourceSuffix.".js")?>')
     script(src!='<?=urlV("%=PATH_JS=%/scripts".$sourceSuffix.".js")?>')
+    script(src='https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js')

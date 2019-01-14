@@ -1,0 +1,7 @@
+include ../modules/_modules
++module(MODULE.DEFINE_VIEW, {title: 'Страница маршрута', id: 1, view: 'Route'})
+
+block content
+  .page.page--route(data-view!='<?=PAGE_JS_VIEW?>')
+    include ../blocks/routes-top
+    include ../blocks/calendar-page

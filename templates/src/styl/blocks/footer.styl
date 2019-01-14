@@ -10,6 +10,9 @@
   hr
     color #fff
     margin 2rem 0
+    &:nth-last-child(1)
+      .tablet &
+        display none
   &--login
     position: absolute
     right: 0
@@ -34,7 +37,11 @@
     &__middle
       .footer--nav--menu
         width 100%
-        justify-content flex-start
+        justify-content flex-start  
+        .tablet &
+          width 100%
+        .mobile &
+          display none
         .footer--nav--item
           margin-right 4rem
           position relative
@@ -58,6 +65,8 @@
       display flex
       justify-content space-between
       flex-wrap: wrap
+      .tablet &
+        width 65rem
 
 .btn__footer
   margin 0 !important

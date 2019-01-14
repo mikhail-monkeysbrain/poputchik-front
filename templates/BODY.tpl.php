@@ -51,16 +51,22 @@ $sourceSuffix = '';
         <link href="<?=urlV('templates/build/css/styles'.$sourceSuffix.'.css')?>" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Black+Ops+One" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet">
   </head>
   <body>
     <script src="<?=urlV("templates/build/js/init".$sourceSuffix.".js")?>"></script>
         <header class="header">
-          <div class="container header--container"><a href="/" class="header--login"> <i class="fas fa-sign-in-alt"></i>Войти</a>
+          <div class="container header--container"><a href="/passenger/" class="header--login"> <i class="fas fa-sign-in-alt"></i>Войти</a>
             <div class="header--nav"><a href="/" class="header--nav--logo"><img src="/templates/build/images/content/logo.png" alt="logo" class="header--logo"></a>
               <nav class="header--nav--menu"><a href="/#map" class="header--nav--item">География</a><a href="/#routes" class="header--nav--item">Стоимость</a><a href="/#calendar" class="header--nav--item">Бронирование</a><a href="/#social" class="header--nav--item">Контакты</a></nav><a href="tel:+79000000000" class="header--phone"> <i class="fas fa-phone"></i>+79000000000</a>
             </div>
           </div>
         </header>
+        <div class="burger">
+          <div class="burger--item"></div>
+          <div class="burger--item"></div>
+          <div class="burger--item"></div>
+        </div>
     <main class="grid"><?=$CONTENT?></main>
     <div class="loader js-loader">
       <div class="loader_box"></div>
@@ -74,12 +80,14 @@ $sourceSuffix = '';
             <hr>
             <div class="footer--nav__middle">
               <nav class="footer--nav--menu"><a href="/#map" class="footer--nav--item">Тюмень - Ханты-Мансийск</a><a href="/#routes" class="footer--nav--item">Сургут - Нижневартовск</a><a href="/#calendar" class="footer--nav--item">Тюмень - Нягань</a><a href="/#social" class="footer--nav--item"> Тюмень - Сургут</a><a href="/#calendar" class="footer--nav--item">Сургут - Ноябрьск</a><a href="/#social" class="footer--nav--item"> Тюмень - Ноябрьск</a><a href="/#social" class="footer--nav--item"> Ханты-Мансийск - Сургут</a><a href="/#routes" class="footer--nav--item">Тюмень - Нижневартовск</a></nav>
+              <hr>
             </div>
-            <hr>
             <div class="footer__bottom"><a href="javascript:void(0)" class="footer--copy">&copy; monkeysbrain 2019</a><a class="btn btn__form btn__footer requireCustom custom--require">Оставить заявку</a></div>
           </div>
         </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script src="<?=urlV("templates/build/js/libs".$sourceSuffix.".js")?>"></script>
     <script src="<?=urlV("templates/build/js/scripts".$sourceSuffix.".js")?>"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js"></script>
   </body>
 </html>

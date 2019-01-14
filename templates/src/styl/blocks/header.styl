@@ -13,14 +13,30 @@
   width 100%
   background #ffffff50
   box-shadow: 0 0 1.4rem -0.2rem #000
+  overflow hidden
+  &__open
+    &--nav
+      position absolute
+      left 0
+      right 0
+      top 0
+      transform: translateX(-100vw)
   &--container
     position relative
+    .tablet &
+      max-width 90rem
   &--login
     position absolute
     right 0
     top -1rem
     color #fff
     text-shadow: 0.2rem 0.2rem 0.5rem #00000080
+    transition: .75s ease-in-out all
+    .mobile &
+      font-size: 0
+      i
+        font-size: 6rem
+        padding 1rem 1rem 0 0
     i
       margin-right 1rem
       text-shadow: 0 0 0 transparent
@@ -28,13 +44,26 @@
     display flex
     justify-content space-between
     align-items center
+    transition: $fast
     &--logo
-      width 15rem
+      width 7rem
+      .mobile &
+        display none
     &--menu
       display flex
       justify-content space-between
       align-content: center
       width 55rem
+      .mobile &
+        position absolute
+        left -4rem
+        right 0
+        top 1rem
+        width 100%
+        transform: translateX(100rem)
+        transition: $fast
+        .header__open--nav
+          transform translateX(0)
     &--item
       color #fff
       font-weight 600
@@ -43,13 +72,46 @@
       position relative
       text-shadow: 0.2rem 0.2rem 0.5rem #00000080
       font-size: 2rem
+      .mobile &
+        font-size: 3rem
   &--phone
     color #fff
     font-weight 600
     text-transform uppercase
     text-shadow: 0.2rem 0.2rem 0.5rem #00000080
     font-size: 2.3rem
+    .mobile &
+      font-size: 4rem
     i
       transform: scaleX(-1)
       margin-right 1rem
       text-shadow: 0 0 0 transparent
+
+.burger
+  display none
+  &__open
+    .burger--item
+      transform-origin: 1.2rem 0.8rem
+      &:nth-child(2)
+        opacity 0
+      &:first-child
+        transform rotate(45deg)
+      &:nth-last-child(1)
+        transform rotate(-45deg)
+  &--item
+    width 10rem
+    height 1.5rem
+    background #fff
+    border-radius: 1.5rem
+    transition: $fast
+  .mobile &
+    display flex
+    flex-direction: column
+    justify-content space-between
+    align-items center
+    width 10rem
+    height 7rem
+    position fixed
+    z-index 10
+    right 4rem
+    top 12rem

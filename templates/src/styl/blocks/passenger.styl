@@ -1,0 +1,169 @@
+.page--profile
+  background #6673b8
+.profile
+  width 100%
+  height auto
+  background-size 100%
+  position relative
+  &--table
+    display flex
+    flex-direction: column
+    width 100%
+    margin 0 auto
+    color #ffffff
+    font-size: 2rem
+    padding 2rem auto
+    .tablet &
+      width 85rem
+    .col
+      color #000000
+      background #ffffff
+      &:nth-child(2n)
+        background #dddddd
+    .thead,
+    .col
+      display flex
+      padding 1rem
+    .thead
+      background #00000050
+      font-size: 2rem
+      font-weight 600
+      text-transform uppercase
+    .row
+      width calc(100% - 21rem)
+      text-align right
+      &__date,
+      &__time
+        width 25rem
+        text-align left
+  &--container
+    display flex
+    flex-direction: column
+    height: auto
+    justify-content: center
+  &--heading
+    color #ffffff
+    text-align center
+    margin-top 10rem
+.avatar
+  border-radius: 50%
+  box-shadow: 0 0 5rem 0rem #000
+  border: .5rem solid #fff
+  transition $fast
+  cursor pointer
+  width: 20rem
+  height 20rem
+  object-fit: cover
+  object-position: center
+  &--download
+    display none
+  &--wrapper
+    width: 20rem
+    position: relative
+    top: 0
+    margin 0 auto
+    .fa-edit
+      position: absolute
+      right: 1rem
+      top: 1rem
+      color: #000
+      font-size: 3rem
+      text-shadow: 0.2rem 0.2rem 0.5rem #fff
+      cursor pointer
+      opacity 0
+      transition: $fast
+    &:hover
+      .fa-edit
+        opacity 1
+      .avatar
+        box-shadow: 0 0 7rem 0rem #fff
+.edit
+  padding 5rem 0
+  width 110rem
+  .tablet &
+    width 85rem
+  label
+    display flex
+    align-items flex-end
+    padding 1rem 0
+    width 100%
+    justify-content space-between
+    cursor pointer
+  &--container
+    padding-top 15rem
+  &--input
+    border: 0
+    background: 0
+    outline: none 
+    border-bottom: .1rem solid #ffffff50
+    padding 0.5rem 1rem
+    font-size: 2rem
+    line-height 2.5rem
+    color #ffffff50
+    font-weight 600
+    width 35%
+    cursor pointer
+    text-align right
+    transition: $fast
+    &:focus
+      color #ffffff
+      border-bottom: .1rem solid #ffffff
+      cursor text
+      width 100%
+      flex-grow: 0
+    input
+      flex-grow: 0
+  &--save
+    opacity 1
+    position relative
+    width 100%
+    left 0
+    right 0
+    top 0
+    bottom 0
+    width 35%
+    margin-top 2rem
+    &--wrapper
+      display flex
+      justify-content flex-end !important
+  h3
+    color #ffffff
+    margin 0
+    margin-right 2rem
+    width 35%
+
+.pay
+  &--container
+    display flex
+    width 100%
+    justify-content space-between
+    align-items center
+    padding 2rem
+    .tablet &
+      width 85rem
+    h3
+      color #ffffff
+      margin 0
+  &--btn
+    margin 0
+    cursor pointer
+.trip
+  &__container
+    &.about__benefits
+      background url("../images/content/routes-bg.jpg") center no-repeat
+      background-size cover
+      padding 5rem 0
+      .calendar
+        width 82rem
+        background: transparent
+        margin 0 auto
+        table.ui-datepicker-calendar,
+        .ui-datepicker-title
+          color #ffffff
+    .edit__container
+      display none
+  &--btn
+    cursor pointer
+    text-align center
+    height 5rem
+    line-height 5rem

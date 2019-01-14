@@ -3,7 +3,7 @@
   background url(../images/content/s-3.jpg) center no-repeat
   background-size cover
   height auto
-  padding: 5rem 0 0
+  padding: 15rem 0
   display flex
   flex-direction: column
   justify-content center
@@ -39,7 +39,7 @@
     align-items flex-start
     padding 10rem 0
     .tablet &
-      padding 10rem 5rem
+      padding 10rem 1rem
     &--header
       display block
       width 100%
@@ -130,6 +130,13 @@
       opacity 0.5
   .back
     transform rotateY(180deg)
+    .about--benefits--item
+      &__flex
+        display flex
+        justify-content center
+        align-items center
+      &--image
+        max-width 30%
   .review
     display flex
     flex-direction: row

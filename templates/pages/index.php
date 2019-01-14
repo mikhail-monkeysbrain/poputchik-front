@@ -11,7 +11,7 @@ define('PAGE_SECTION_ID','0');
 define('PAGE_JS_VIEW','Index');
 ?>
 <div data-view="<?=PAGE_JS_VIEW?>" class="page page--index">
-  <section id="section-1" class="section-top">
+  <section id="section-1" class="section-top parallax">
     <div class="section--video container">
       <div class="section-top--heading">
         <h1>Поездки в города ЯНАО и Югры - КАЖДЫЙ ДЕНЬ!</h1>
@@ -30,28 +30,29 @@ define('PAGE_JS_VIEW','Index');
         <p class="map--description__content">Больше не нужно тратить время на лишние пересадки. Звоните нам - быстро добирайтесь до нужного адреса!</p>
       </div>
     </div>
-    <div class="map--wrapper">
-      <script type="text/javascript" charset="utf-8" async="" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A143606362518c729bb4aef2d31f68a5cd1705dad51467e6020b9a678fb7ca4dc&amp;width=100%25&amp;height=600&amp;lang=ru_RU&amp;scroll=false"></script>
+    <div class="map--wrapper"><img src="/templates/build/images/content/map.jpg" alt="" class="map--img"/>
+      <!-- script(type='text/javascript', charset='utf-8', async='', src='https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A143606362518c729bb4aef2d31f68a5cd1705dad51467e6020b9a678fb7ca4dc&width=100%25&height=600&lang=ru_RU&scroll=false')-->
     </div>
   </section>
-  <section id="about" class="about">
+  <section id="about" class="about parallax">
     <div class="about--container container">
       <h2 class="about--heading">Поездка с комфортом</h2>
       <h3 class="about--heading__description">Требуется комфорт и высокий уровень вождения?</h3>
       <div class="abiut--line"></div>
       <p class="about--description">Компания Попутчики более 7 лет оказывает услуги по пассажирским перевозкам! И уже зарекомендовала себя, как надежный и комфортный сервис на территории Югры и всей Тюменской области. Поездка в современном автомобиле с приятными бонусами - это для Вас! Звоните нам! Количество мест ограничено!</p>
-      <div class="about--benefits">
-        <h3 class="about--benefits--header">В поездке мы предлагаем своим пассажирам:</h3>
-        <article class="about--benefits--item"><img src="/templates/build/images/content/a-1.png" alt="" class="about--benefits--item--image"/>
-          <p class="about--benefits--item--description">Теплые, уютные пледы</p>
-        </article>
-        <article class="about--benefits--item"><img src="/templates/build/images/content/a-2.png" alt="" class="about--benefits--item--image"/>
-          <p class="about--benefits--item--description">Красивые и удобные подушки</p>
-        </article>
-        <article class="about--benefits--item"><img src="/templates/build/images/content/a-3.png" alt="" class="about--benefits--item--image"/>
-          <p class="about--benefits--item--description">Бутылки с питьевой водой</p>
-        </article>
-      </div>
+      <!-- .about--benefits
+      h3.about--benefits--header
+        | В поездке мы предлагаем своим пассажирам:
+      article.about--benefits--item
+        img.about--benefits--item--image(src="/templates/build/images/content/a-1.png", alt="")
+        p.about--benefits--item--description Теплые, уютные пледы
+      article.about--benefits--item
+        img.about--benefits--item--image(src="/templates/build/images/content/a-2.png", alt="")
+        p.about--benefits--item--description Красивые и удобные подушки
+      article.about--benefits--item
+        img.about--benefits--item--image(src="/templates/build/images/content/a-3.png", alt="")
+        p.about--benefits--item--description Бутылки с питьевой водой
+      -->
     </div>
   </section>
   <section id="works" class="works">
@@ -74,7 +75,7 @@ define('PAGE_JS_VIEW','Index');
       </section><a href="/" class="btn btn__transparent">Перейти к бронированию</a>
     </div>
   </section>
-  <section id="routes" class="routes">
+  <section id="routes" class="routes parallax">
     <div class="routes--container container">
       <h2 class="routes--heading"></h2>
       <h3 class="routes--heading__description">Города и стоимость поездки</h3>
@@ -82,49 +83,49 @@ define('PAGE_JS_VIEW','Index');
         <article class="routes--list--item"><img src="/templates/build/images/content/route-1.jpg" alt="" class="routes--list--img"/>
           <div class="routes--list--description">
             <div class="routes--list--route">Тюмень - Ханты-Мансийск</div>
-            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/detail/" class="routes--list--link btn btn__transparent">Забронировать</a>
+            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/route/" class="routes--list--link btn btn__transparent">Забронировать</a>
           </div>
         </article>
         <article class="routes--list--item"><img src="/templates/build/images/content/route-1.jpg" alt="" class="routes--list--img"/>
           <div class="routes--list--description">
             <div class="routes--list--route">Тюмень - Ханты-Мансийск</div>
-            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/detail/" class="routes--list--link btn btn__transparent">Забронировать</a>
+            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/route/" class="routes--list--link btn btn__transparent">Забронировать</a>
           </div>
         </article>
         <article class="routes--list--item"><img src="/templates/build/images/content/route-1.jpg" alt="" class="routes--list--img"/>
           <div class="routes--list--description">
             <div class="routes--list--route">Тюмень - Ханты-Мансийск</div>
-            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/detail/" class="routes--list--link btn btn__transparent">Забронировать</a>
+            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/route/" class="routes--list--link btn btn__transparent">Забронировать</a>
           </div>
         </article>
         <article class="routes--list--item"><img src="/templates/build/images/content/route-1.jpg" alt="" class="routes--list--img"/>
           <div class="routes--list--description">
             <div class="routes--list--route">Тюмень - Ханты-Мансийск</div>
-            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/detail/" class="routes--list--link btn btn__transparent">Забронировать</a>
+            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/route/" class="routes--list--link btn btn__transparent">Забронировать</a>
           </div>
         </article>
         <article class="routes--list--item"><img src="/templates/build/images/content/route-1.jpg" alt="" class="routes--list--img"/>
           <div class="routes--list--description">
             <div class="routes--list--route">Тюмень - Ханты-Мансийск</div>
-            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/detail/" class="routes--list--link btn btn__transparent">Забронировать</a>
+            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/route/" class="routes--list--link btn btn__transparent">Забронировать</a>
           </div>
         </article>
         <article class="routes--list--item"><img src="/templates/build/images/content/route-1.jpg" alt="" class="routes--list--img"/>
           <div class="routes--list--description">
             <div class="routes--list--route">Тюмень - Ханты-Мансийск</div>
-            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/detail/" class="routes--list--link btn btn__transparent">Забронировать</a>
+            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/route/" class="routes--list--link btn btn__transparent">Забронировать</a>
           </div>
         </article>
         <article class="routes--list--item"><img src="/templates/build/images/content/route-1.jpg" alt="" class="routes--list--img"/>
           <div class="routes--list--description">
             <div class="routes--list--route">Тюмень - Ханты-Мансийск</div>
-            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/detail/" class="routes--list--link btn btn__transparent">Забронировать</a>
+            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/route/" class="routes--list--link btn btn__transparent">Забронировать</a>
           </div>
         </article>
         <article class="routes--list--item"><img src="/templates/build/images/content/route-1.jpg" alt="" class="routes--list--img"/>
           <div class="routes--list--description">
             <div class="routes--list--route">Тюмень - Ханты-Мансийск</div>
-            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/detail/" class="routes--list--link btn btn__transparent">Забронировать</a>
+            <div class="routes--list--price"> <span>1500</span>&#8381;</div><a href="/route/" class="routes--list--link btn btn__transparent">Забронировать</a>
           </div>
         </article>
       </section>
@@ -134,6 +135,22 @@ define('PAGE_JS_VIEW','Index');
     <div class="calendar--container container">
       <h2 class="calendar--heading">Мы предлагаем Вам</h2>
       <h3 class="calendar--description">быстрые, комфортные и безопасные поездки на автомобилях Hyundai H-1 Starex.</h3>
+      <select name="route" class="dropDown">
+        <option value="2019-1-21,2019-1-24,2019-1-27,2019-0-29">Тюмень - Сургут</option>
+        <option value="2019-2-21,2019-2-24,2019-2-27,2019-1-29">Сургут -Тюмень</option>
+        <option value="2019-3-21,2019-3-24,2019-3-27,2019-2-29">Тюмень - Ноябрьск</option>
+        <option value="2019-2-11,2019-2-14,2019-2-17,2019-1-19">Ноябрьск - Тюмень</option>
+        <option value="2019-1-01,2019-1-04,2019-1-07,2019-1-09">Нижневартовск - Ноябрьск</option>
+        <option value="2019-1-11,2019-1-14,2019-1-17,2019-0-19">Ноябрьск - Нижневартовск</option>
+        <option value="2019-2-11,2019-2-14,2019-2-17,2019-2-19">Ханты-Мансийск - Нягань</option>
+        <option value="2019-1-21,2019-1-24,2019-1-27,2019-1-29">Нягань - Ханты-Мансийск</option>
+        <option value="2019-2-21,2019-2-24,2019-2-27,2019-1-29">Нягань - Советский</option>
+        <option value="2019-1-21,2019-1-24,2019-1-27,2019-1-29">Советский - Нягань</option>
+        <option value="2019-2-21,2019-2-24,2019-2-27,2019-1-29">Нягань - Урай</option>
+        <option value="2019-3-21,2019-3-24,2019-3-27,2019-1-29">Урай - Нягань</option>
+        <option value="2019-1-21,2019-1-24,2019-1-27,2019-1-29">Нягань - Сургут</option>
+        <option value="2019-3-21,2019-3-24,2019-3-27,2019-1-29">Сургут - Нягань</option>
+      </select>
     </div>
     <div class="calendar--datepicker datepicker"></div>
     <div class="time-select">
@@ -201,13 +218,13 @@ define('PAGE_JS_VIEW','Index');
       </div><a class="btn btn__form">Забронировать</a>
     </div>
   </section>
-  <section id="custom" class="custom">
+  <section id="custom" class="custom parallax">
     <div class="custom--container container">
       <h2 class="custom--heading">Во время бронирования не нашли свой населенный пункт?</h2>
       <h3 class="custom--description">Или Ваш город остается вне нашего маршрута?  Не огорчайтесь - мы довезём Вас! Просто оставьте заявку! И мы свяжемся с Вами в течение 10 минут! </h3><a class="btn btn__form requireCustom custom--require">Оставить заявку</a>
     </div>
   </section>
-  <section id="about" class="about__benefits">
+  <section id="about" class="about__benefits parallax">
     <div class="about--container container">
       <h2 class="about--heading">Наши преимущества</h2>
       <div class="about--benefits">
@@ -227,10 +244,8 @@ define('PAGE_JS_VIEW','Index');
               <p>Комфортная поездка с бонусами во время пути</p>
             </div>
             <div class="back">
-              <p>В поездке мы предлагаем:</p>
-              <p>Теплые, уютные пледы</p>
-              <p>Красивые и удобные подушки</p>
-              <p>Бутылки с питьевой водой</p>
+              <!-- p В поездке мы предлагаем:-->
+              <div class="about--benefits--item__flex"><img src="/templates/build/images/content/a-1.png" alt="" class="about--benefits--item--image"/><img src="/templates/build/images/content/a-2.png" alt="" class="about--benefits--item--image"/><img src="/templates/build/images/content/a-3.png" alt="" class="about--benefits--item--image"/></div>
             </div>
           </div>
         </div>

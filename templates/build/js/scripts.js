@@ -976,43 +976,16 @@ app.ns('app.views').Header = app.core.View.extend({
     app.views.Header.__super__.render.apply(this, arguments);
   }
 });
-;'use strict';
-
-app.ns('app.views').Index = app.core.Page.extend({
-
-  events: {},
-
-  behaviors: [
-    // 'Behavior1'
-  ],
-
-  subView: {
-    // subView1: 'subView1'
-  },
-
-  initialize: function initialize() {
-    app.views.Index.__super__.initialize.apply(this, arguments);
-  },
-
-  remove: function remove() {
-    app.views.Index.__super__.remove.apply(this, arguments);
-  },
-
-  render: function render() {
-    app.views.Index.__super__.render.apply(this, arguments);
-
-    app.views.Index.__super__.afterRender.apply(this, arguments);
-  }
-});
 
 function _calendar() {
-  var book1 = ['2019-1-21', '2019-1-24', '2019-1-27', '2019-1-29'];
-  var book2 = ['2019-1-21', '2019-1-24'];
-  var book3 = ['2019-1-21'];
-  var book4 = ['2019-2-1'];
-  var book5 = ['2019-2-4'];
-  var book6 = ['2019-2-5'];
-  var book7 = ['2019-2-21'];
+  var book1 = [];
+  $('.dropDown').select2();
+  $('select.dropDown').change(function () {
+    book1 = $(this).val().split(',');
+    $('.datepicker, .time-select, .sheme--container, .calendar--form').slideUp();
+    $('.datepicker').datepicker('refresh');
+    $('.datepicker').slideDown();
+  });
   $('.datepicker').datepicker({
     numberOfMonths: 3,
     language: 'ru',
@@ -1021,36 +994,11 @@ function _calendar() {
       var m = date.getMonth();
       var d = date.getDate();
       var y = date.getFullYear();
-      for (var $b7 = 0; $b7 < book7.length; $b7++) {
-        if ($.inArray(y + '-' + (m + 1) + '-' + d, book7) !== -1) {
-          return [true, 'ui-state-active__n7', ''];
-        }
-      }
-      for (var $b6 = 0; $b6 < book6.length; $b6++) {
-        if ($.inArray(y + '-' + (m + 1) + '-' + d, book6) !== -1) {
-          return [true, 'ui-state-active__n6', ''];
-        }
-      }
-      for (var $b5 = 0; $b5 < book5.length; $b5++) {
-        if ($.inArray(y + '-' + (m + 1) + '-' + d, book5) !== -1) {
-          return [true, 'ui-state-active__n5', ''];
-        }
-      }
-      for (var $b4 = 0; $b4 < book4.length; $b4++) {
-        if ($.inArray(y + '-' + (m + 1) + '-' + d, book4) !== -1) {
-          return [true, 'ui-state-active__n4', ''];
-        }
-      }
-      for (var $b3 = 0; $b3 < book3.length; $b3++) {
-        if ($.inArray(y + '-' + (m + 1) + '-' + d, book3) !== -1) {
-          return [true, 'ui-state-active__n3', ''];
-        }
-      }
-      for (var $b2 = 0; $b2 < book2.length; $b2++) {
-        if ($.inArray(y + '-' + (m + 1) + '-' + d, book2) !== -1) {
-          return [true, 'ui-state-active__n2', ''];
-        }
-      }
+      // for (var $b2 = 0; $b2 < book2.length; $b2++) {
+      //   if ($.inArray(y + '-' + (m + 1) + '-' + d, book2) !== -1) {
+      //     return [true, 'ui-state-active__n2', '']
+      //   }
+      // }
       for (var $b1 = 0; $b1 < book1.length; $b1++) {
         if ($.inArray(y + '-' + (m + 1) + '-' + d, book1) !== -1) {
           return [true, 'ui-state-active__n1', ''];
@@ -1081,7 +1029,42 @@ function _selectPlace() {
   });
 }
 
-$(document).ready(_calendar(), _selectPlace());
+function _mobileMenu() {
+  $('.burger').click(function () {
+    $('.header--nav, .header--login, .header--nav--menu').toggleClass('header__open--nav');
+    $(this).toggleClass('burger__open');
+  });
+}
+
+$(document).ready(_calendar(), _selectPlace(), _mobileMenu());
+;'use strict';
+
+app.ns('app.views').Index = app.core.Page.extend({
+
+  events: {},
+
+  behaviors: [
+    // 'Behavior1'
+  ],
+
+  subView: {
+    // subView1: 'subView1'
+  },
+
+  initialize: function initialize() {
+    app.views.Index.__super__.initialize.apply(this, arguments);
+  },
+
+  remove: function remove() {
+    app.views.Index.__super__.remove.apply(this, arguments);
+  },
+
+  render: function render() {
+    app.views.Index.__super__.render.apply(this, arguments);
+
+    app.views.Index.__super__.afterRender.apply(this, arguments);
+  }
+});
 ;'use strict';
 
 /**
@@ -1099,6 +1082,96 @@ app.ns('app.views').NotFound = app.core.Page.extend({
     app.views.NotFound.__super__.render.apply(this, arguments);
   }
 
+});
+;'use strict';
+
+app.ns('app.views').Profile = app.core.Page.extend({
+
+  events: {},
+
+  behaviors: [
+    // 'Behavior1'
+  ],
+
+  subView: {
+    // subView1: 'subView1'
+  },
+
+  initialize: function initialize() {
+    app.views.Profile.__super__.initialize.apply(this, arguments);
+  },
+
+  remove: function remove() {
+    app.views.Profile.__super__.remove.apply(this, arguments);
+  },
+
+  render: function render() {
+    app.views.Profile.__super__.render.apply(this, arguments);
+
+    app.views.Profile.__super__.afterRender.apply(this, arguments);
+  }
+});
+
+function previewFile() {
+  var preview = document.querySelector('.avatar');
+  var file = document.querySelector('input[type=file]').files[0];
+  var reader = new FileReader();
+
+  reader.onloadend = function () {
+    preview.src = reader.result;
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  } else {
+    preview.src = '';
+  }
+}
+
+function _editProfile() {
+  $('.avatar--wrapper').click(function () {
+    $('.avatar--download').trigger('click');
+  });
+
+  $('.avatar--download').change(function (e) {
+    previewFile();
+  });
+}
+
+function _editTrip() {
+  $('.trip--btn, .trip--save').click(function () {
+    $('.trip__container .edit__container').slideToggle();
+  });
+}
+
+$(document).ready(_editProfile(), _editTrip());
+;'use strict';
+
+app.ns('app.views').Route = app.core.Page.extend({
+
+  events: {},
+
+  behaviors: [
+    // 'Behavior1'
+  ],
+
+  subView: {
+    // subView1: 'subView1'
+  },
+
+  initialize: function initialize() {
+    app.views.Route.__super__.initialize.apply(this, arguments);
+  },
+
+  remove: function remove() {
+    app.views.Route.__super__.remove.apply(this, arguments);
+  },
+
+  render: function render() {
+    app.views.Route.__super__.render.apply(this, arguments);
+
+    app.views.Route.__super__.afterRender.apply(this, arguments);
+  }
 });
 ;'use strict';
 
